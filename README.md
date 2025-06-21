@@ -1,36 +1,75 @@
-# 📆 Agenda des événements à Antananarivo
-
-Bienvenue sur le projet **Tana Events** — une plateforme pour découvrir et partager les événements autour de Tananarive.
-
----
-
-## 🔜 Événements à venir
-
-| 📅 Date       | 🕒 Heure  | 📍 Lieu           | 🎉 Événement                      |
-|--------------|----------|------------------|----------------------------------|
-| 2025-06-22   | 19h00    | Ivato            | Podium sy Bal Paska              |
-| 2025-06-23   | 14h00    | Analakely        | Concert Gospel                   |
-| 2025-06-25   | 10h00    | Alarobia         | Marché de créateurs artisanaux   |
-| 2025-06-26   | 16h00    | Ambohijatovo     | Expo "Jeunes Talents Mada"       |
-| 2025-06-28   | 20h00    | Ambatonakanga    | Soirée Slam & Poésie             |
-
----
-
-## ✍️ Ajouter un événement
-
-> 💡 Tu peux proposer un événement en créant une "Issue" ou en envoyant une Pull Request avec ton ajout ici.
-
----
-
-## 🔧 Fonctionnalités à venir
-
-- [ ] Recherche par quartier
-- [ ] Filtrage par date / catégorie
-- [ ] Ajout automatique via formulaire
-- [ ] Intégration avec Google Calendar
-
----
-
-## 📢 Contact
-
-Si tu veux collaborer, écris-moi ou crée une issue sur ce projet. 
+<!DOCTYPE html><html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tana Events Calendar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f8fa;
+      padding: 2rem;
+    }
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      text-align: left;
+    }
+    th {
+      background-color: #2c3e50;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Agenda des événements à Tana</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Heure</th>
+        <th>Lieu</th>
+        <th>Événement</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2025-06-22</td>
+        <td>19h00</td>
+        <td>Ivato</td>
+        <td>Podium sy Bal Paska</td>
+      </tr>
+      <tr>
+        <td>2025-06-23</td>
+        <td>14h00</td>
+        <td>Analakely</td>
+        <td>Concert Gospel</td>
+      </tr>
+      <tr>
+        <td>2025-06-25</td>
+        <td>10h00</td>
+        <td>Alarobia</td>
+        <td>Marché de créateurs artisanaux</td>
+      </tr>
+      <tr>
+        <td>2025-06-26</td>
+        <td>16h00</td>
+        <td>Ambohijatovo</td>
+        <td>Expo "Jeunes Talents Mada"</td>
+      </tr>
+      <tr>
+        <td>2025-06-28</td>
+        <td>20h00</td>
+        <td>Ambatonakanga</td>
+        <td>Soirée Slam & Po
