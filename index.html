@@ -1,54 +1,43 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Calendrier Simple</title>
-  <style>
-    table { border-collapse: collapse; width: 300px; }
-    th, td { border: 1px solid #ccc; width: 40px; height: 40px; text-align: center; }
-    th { background: #f0f0f0; }
-  </style>
-</head>
-<body>
-  <h2 id="mois"></h2>
-  <table id="calendrier"></table>
-
-  <script>
-    const moisNoms = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
-    const aujourdHui = new Date();
-    const mois = aujourdHui.getMonth();
-    const annee = aujourdHui.getFullYear();
-
-    document.getElementById("mois").textContent = `${moisNoms[mois]} ${annee}`;
-
-    function genererCalendrier(mois, annee) {
-      const premierJour = new Date(annee, mois, 1).getDay();
-      const joursDansMois = new Date(annee, mois + 1, 0).getDate();
-      let html = "<tr>";
-      const jours = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
-      for (let j of jours) { html += `<th>${j}</th>`; }
-      html += "</tr><tr>";
-      let jourSemaine = premierJour === 0 ? 6 : premierJour - 1; // Ajuste pour commencer par lundi
-      for (let i = 0; i < jourSemaine; i++) {
-        html += "<td></td>";
-      }
-      for (let jour = 1; jour <= joursDansMois; jour++) {
-        if (jourSemaine === 7) {
-          html += "</tr><tr>";
-          jourSemaine = 0;
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script><div id="calendrier"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendrier');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      locale: 'fr',
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      },
+      selectable: true,
+      editable: true,
+      events: [
+        {
+          title: 'Rendez-vous',
+          start: new Date().toISOString().slice(0,10),
+          allDay: true
         }
-        html += `<td>${jour}</td>`;
-        jourSemaine++;
+      ],
+      select: function(info) {
+        var titre = prompt('Nom de l\'événement :');
+        if (titre) {
+          calendar.addEvent({
+            title: titre,
+            start: info.startStr,
+            end: info.endStr,
+            allDay: info.allDay
+          });
+        }
+        calendar.unselect();
+      },
+      eventClick: function(info) {
+        if (confirm('Supprimer cet événement ?')) {
+          info.event.remove();
+        }
       }
-      while (jourSemaine < 7 && jourSemaine !== 0) {
-        html += "<td></td>";
-        jourSemaine++;
-      }
-      html += "</tr>";
-      document.getElementById("calendrier").innerHTML = html;
-    }
-
-    genererCalendrier(mois, annee);
-  </script>
-</body>
-</html>
+    });
+    calendar.render();
+  });
+</script>
