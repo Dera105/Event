@@ -1,43 +1,91 @@
-<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script><div id="calendrier"></div>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendrier');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: 'dayGridMonth',
-      locale: 'fr',
-      headerToolbar: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay'
-      },
-      selectable: true,
-      editable: true,
-      events: [
-        {
-          title: 'Rendez-vous',
-          start: new Date().toISOString().slice(0,10),
-          allDay: true
-        }
-      ],
-      select: function(info) {
-        var titre = prompt('Nom de l\'événement :');
-        if (titre) {
-          calendar.addEvent({
-            title: titre,
-            start: info.startStr,
-            end: info.endStr,
-            allDay: info.allDay
-          });
-        }
-        calendar.unselect();
-      },
-      eventClick: function(info) {
-        if (confirm('Supprimer cet événement ?')) {
-          info.event.remove();
-        }
-      }
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Calendrier Lunaire 2025</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #0d1b2a;
+      color: #f1f1f1;
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #444;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #1b263b;
+    }
+    tr:nth-child(even) {
+      background-color: #1b1b2f;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌕 Calendrier Lunaire 2025</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Phase Lunaire</th>
+      </tr>
+    </thead>
+    <tbody id="lunar-calendar">
+    </tbody>
+  </table>
+
+  <script>
+    const lunarPhases2025 = [
+      { date: "29 janvier", phase: "🌑 Nouvelle lune" },
+      { date: "05 février", phase: "🌓 Premier quartier" },
+      { date: "12 février", phase: "🌕 Pleine lune" },
+      { date: "20 février", phase: "🌗 Dernier quartier" },
+
+      { date: "28 février", phase: "🌑 Nouvelle lune" },
+      { date: "07 mars", phase: "🌓 Premier quartier" },
+      { date: "14 mars", phase: "🌕 Pleine lune" },
+      { date: "22 mars", phase: "🌗 Dernier quartier" },
+
+      { date: "30 mars", phase: "🌑 Nouvelle lune" },
+      { date: "06 avril", phase: "🌓 Premier quartier" },
+      { date: "13 avril", phase: "🌕 Pleine lune" },
+      { date: "21 avril", phase: "🌗 Dernier quartier" },
+
+      { date: "29 avril", phase: "🌑 Nouvelle lune" },
+      { date: "06 mai", phase: "🌓 Premier quartier" },
+      { date: "13 mai", phase: "🌕 Pleine lune" },
+      { date: "21 mai", phase: "🌗 Dernier quartier" },
+
+      { date: "28 mai", phase: "🌑 Nouvelle lune" },
+      { date: "05 juin", phase: "🌓 Premier quartier" },
+      { date: "12 juin", phase: "🌕 Pleine lune" },
+      { date: "20 juin", phase: "🌗 Dernier quartier" },
+
+      { date: "27 juin", phase: "🌑 Nouvelle lune" },
+      { date: "05 juillet", phase: "🌓 Premier quartier" },
+      { date: "11 juillet", phase: "🌕 Pleine lune" },
+      { date: "19 juillet", phase: "🌗 Dernier quartier" },
+
+      // Tu peux continuer pour le reste de l’année
+    ];
+
+    const tbody = document.getElementById("lunar-calendar");
+    lunarPhases2025.forEach(phase => {
+      const row = document.createElement("tr");
+      row.innerHTML = `<td>${phase.date} 2025</td><td>${phase.phase}</td>`;
+      tbody.appendChild(row);
     });
-    calendar.render();
-  });
-</script>
+  </script>
+</body>
+</html>
