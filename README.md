@@ -8,11 +8,11 @@ Bienvenue sur le projet **Tana Events** — une plateforme pour découvrir et pa
 
 | 📅 Date       | 🕒 Heure  | 📍 Lieu           | 🎉 Événement                      |
 |--------------|----------|------------------|----------------------------------|
-| 2025-06-22   | 19h00    | Ivato            | Podium sy Bal Paska              |
+| 2025-06-22   | 19h00    | Ivato            | Podium sy 26 juin                |
 | 2025-06-23   | 14h00    | Analakely        | Concert Gospel                   |
 | 2025-06-25   | 10h00    | Alarobia         | Marché de créateurs artisanaux   |
 | 2025-06-26   | 16h00    | Ambohijatovo     | Expo "Jeunes Talents Mada"       |
-| 2025-06-28   | 20h00    | Ambatonakanga    | Soirée Slam & Poésie             |
+| 2025-06-28   | 20h00    | Ambatonakanga    | soirées mafana tsapiky           |
 
 ---
 
